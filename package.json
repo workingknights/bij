@@ -1,0 +1,16 @@
+{
+  "name": "bij",
+  "version": "0.0.0",
+  "description": "Website for Beer in Japan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anthony Knights",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta5"
+  }
+}
