@@ -1,1 +1,7 @@
-node_modules
+*.[oa]
+*.~
+.gitignore
+node_modules/
+client/node_modules
+client/app/*.js
+npm-debug.log
