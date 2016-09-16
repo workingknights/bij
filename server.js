@@ -8,9 +8,9 @@ var config = require('./server/config/config')[env];
 
 require('./server/config/express')(app, config);
 
-// var connection = require('./server/config/mongoose')(config).connection;
+require('./server/config/mongoose')(config);
 
-// require('./server/config/routes')(app, connection);
+require('./server/config/routes')(app);
 
 app.listen(config.port);
 console.log('Listening on port ' + config.port + '...');

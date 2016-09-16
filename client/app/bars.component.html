@@ -1,0 +1,21 @@
+<h2>Bars</h2>
+<div>
+  <button type="button" class="btn btn-default" [hidden]="addingBar" (click)="addingBar=true">Add Bar</button>
+</div>
+<div *ngIf="addingBar">
+  <bar-form></bar-form>
+</div>
+<div class="row">
+  <ul class="bars">
+      <li *ngFor="let bar of bars">
+        <div class="col-lg-4">
+        <span>{{bar.name}}</span>
+        <span>{{bar.stations}}</span>
+        <span>{{bar.mapurl}}</span>
+        <sebm-google-map [latitude]="35.685152" [longitude]="139.783596" [zoom]="16">
+          <sebm-google-map-marker [latitude]="35.685152" [longitude]="139.783596"></sebm-google-map-marker>
+        </sebm-google-map>
+      </div>
+    </li>
+  </ul>
+</div>

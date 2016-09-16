@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <h1>{{title}}</h1>
+  <nav>
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/map" routerLinkActive="active">Map</a>
+    <a routerLink="/articles" routerLinkActive="active">Articles</a>
+    <a routerLink="/bars" routerLinkActive="active">Bars</a>
+  </nav>
+  <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-lg-10"></div>
+    <div class="col-lg-2">
+      <a class="fa fa-twitter" target="_blank" href="https://twitter.com/beerinjapan"></a>
+      <a class="fa fa-facebook" target="_blank" href="https://www.facebook.com/beerinjapan"></a>
+    </div>
+  </div>
+</div>
