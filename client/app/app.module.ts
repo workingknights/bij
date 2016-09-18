@@ -1,14 +1,16 @@
 import './rxjs-extensions';
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { AgmCoreModule } from 'node_modules/angular2-google-maps/core/core-module';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent }   from './app.component';
 import { BarsComponent }      from './bars.component';
 import { HomeComponent }      from './home.component';
+import { BarDetailComponent } from './bar-detail.component';
 import { BarFormComponent }      from './bar-form.component';
+import { BarService }      from './bar.service';
 import { routing } from './app.routing';
 
 @NgModule({
@@ -17,17 +19,19 @@ import { routing } from './app.routing';
     HttpModule,
     FormsModule,
     routing,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBJWqITNwcMAW7GijYNYiGWBmIrysESOCc'
-    })
+    AgmCoreModule.forRoot()
+    // AgmCoreModule.forRoot({apiKey: 'AIzaSyBJWqITNwcMAW7GijYNYiGWBmIrysESOCc'})
   ],
-  providers: [],
   declarations: [
     AppComponent,
     HomeComponent,
     BarsComponent,
-    BarFormComponent,
+    BarDetailComponent,
+    BarFormComponent
   ],
-  bootstrap:    [ AppComponent ]
+  providers: [
+    BarService
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

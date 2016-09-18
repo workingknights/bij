@@ -1,0 +1,9 @@
+<div *ngIf="bar">
+  <h3>{{bar.name}}</h3>
+  <span>{{bar.stations}}</span>
+  <span>
+    <sebm-google-map [latitude]="35.685152" [longitude]="139.783596" [zoom]="16">
+      <sebm-google-map-marker [latitude]="35.685152" [longitude]="139.783596"></sebm-google-map-marker>
+    </sebm-google-map>
+  </span>
+</div>

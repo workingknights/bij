@@ -11,12 +11,30 @@ export class BarService {
   constructor(private http: Http) {}
 
   getBars(): Observable<Bar[]> {
+    console.log('getBars()');
     return this.http.get(this.barsUrl)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
+  getBar(name: string): Observable<Bar> {
+    console.log('getBar() name = ' + name);
+    return this.http.get(`${this.barsUrl}/name/${name}`)
+      .map(this.extractBar)
+      .catch(this.handleError);
+  }
+
+  private extractBar(res: Response) {
+    let body = res.json() as Bar;
+    let firstElem = body[0];
+    console.log('firstElem = ' + firstElem);
+    var bar = new Bar(firstElem._id, firstElem.name, firstElem.area, firstElem.stations);
+    console.log("bar = " + JSON.stringify(bar));
+    return bar;
+  }
+
   private extractData(res: Response) {
+    console.log('extractData()');
     let body = res.json();
     console.log(body);
     return body || {};

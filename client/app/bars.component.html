@@ -7,14 +7,11 @@
 </div>
 <div class="row">
   <ul class="bars">
-      <li *ngFor="let bar of bars">
-        <div class="col-lg-4">
+    <li *ngFor="let bar of bars">
+      <div class="col-lg-4">
         <span>{{bar.name}}</span>
         <span>{{bar.stations}}</span>
-        <span>{{bar.mapurl}}</span>
-        <sebm-google-map [latitude]="35.685152" [longitude]="139.783596" [zoom]="16">
-          <sebm-google-map-marker [latitude]="35.685152" [longitude]="139.783596"></sebm-google-map-marker>
-        </sebm-google-map>
+        <button (click)="goToDetail(bar)">Details</button>
       </div>
     </li>
   </ul>

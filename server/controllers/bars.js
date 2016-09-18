@@ -10,3 +10,12 @@ exports.getBars = function(req, res) {
       res.send(collection);
     })
 };
+
+exports.getBarByName = function(req, res) {
+  var name = req.params.name;
+  console.log('getBarByName() name = ' + name);
+    Bar.find({name: new RegExp('^'+name, "i")}).exec(function(err, collection) {
+      console.log(collection);
+      res.send(collection);
+    })
+}

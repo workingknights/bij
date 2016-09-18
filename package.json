@@ -3,16 +3,17 @@
   "version": "0.0.0",
   "description": "Website for Beer in Japan",
   "scripts": {
-    "start": "nodemon  --config nodemon.json server.js && \"npm run tsc:w\"",
+    "start": "tsc -p client && concurrently \"nodemon  --config nodemon.json server.js\" \"npm run tsc:w\" ",
     "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
+    "tsc": "tsc -p client",
+    "tsc:w": "tsc -w -p client",
     "typings": "typings"
   },
   "author": "Anthony Knights",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "angular2-google-maps": "^0.15.0",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
@@ -22,6 +23,7 @@
     "morgan": "~1.7.0"
   },
   "devDependencies": {
-    "concurrently": "^2.0.0"
+    "concurrently": "^2.2.0",
+    "typescript": "^2.0.2"
   }
 }
