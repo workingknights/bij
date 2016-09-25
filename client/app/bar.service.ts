@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 
 import { Bar } from './bar';
@@ -7,6 +7,7 @@ import { Bar } from './bar';
 @Injectable()
 export class BarService {
   private barsUrl = 'api/bars';
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
 
@@ -22,6 +23,13 @@ export class BarService {
     return this.http.get(`${this.barsUrl}/name/${name}`)
       .map(this.extractBar)
       .catch(this.handleError);
+  }
+
+  addBar(newBar: Bar): Observable<Bar> {
+    console.log('addBar() - newBar = ' + JSON.stringify(newBar));
+    return this.http.post('api/bars', JSON.stringify({name: newBar.name}), {headers: this.headers})
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   private extractBar(res: Response) {

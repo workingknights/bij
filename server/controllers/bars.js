@@ -19,3 +19,20 @@ exports.getBarByName = function(req, res) {
       res.send(collection);
     })
 }
+
+exports.add = function(req, res) {
+  console.log('createBar() req = ' + req);
+  var name = req.body.name;
+  console.log('createBar() name = ' + name);
+
+  var newBar = new Bar({ name: name });
+  newBar.save(function(err) {
+    if (err) {
+      res.status(400); return res.send({reason: err.toString()});
+    }
+    else {
+      console.log('newBar = ' + newBar);
+      res.json(newBar);
+    }
+  })
+}

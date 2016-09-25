@@ -10,6 +10,7 @@ import { BarsComponent }      from './bars.component';
 import { HomeComponent }      from './home.component';
 import { BarDetailComponent } from './bar-detail.component';
 import { BarFormComponent }      from './bar-form.component';
+import { MapComponent }      from './map.component';
 import { BarService }      from './bar.service';
 import { routing } from './app.routing';
 
@@ -19,14 +20,15 @@ import { routing } from './app.routing';
     HttpModule,
     FormsModule,
     routing,
-    AgmCoreModule.forRoot()
-    // AgmCoreModule.forRoot({apiKey: 'AIzaSyBJWqITNwcMAW7GijYNYiGWBmIrysESOCc'})
+    // AgmCoreModule.forRoot()
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBJWqITNwcMAW7GijYNYiGWBmIrysESOCc'})
   ],
   declarations: [
     AppComponent,
     HomeComponent,
     BarsComponent,
     BarDetailComponent,
+    MapComponent,
     BarFormComponent
   ],
   providers: [

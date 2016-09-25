@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BarsComponent }      from './bars.component';
 import { BarDetailComponent }      from './bar-detail.component';
 import { HomeComponent }      from './home.component';
+import { MapComponent }      from './map.component';
 
 const appRoutes: Routes = [
   {
@@ -23,6 +24,11 @@ const appRoutes: Routes = [
   {
     path: 'bar-detail/:name',
     component: BarDetailComponent
+  }
+  ,
+  {
+    path: 'map',
+    component: MapComponent
   }
 ];
 

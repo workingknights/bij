@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Bar } from './bar';
+import { BarService } from './bar.service';
 
 @Component({
   selector: 'bar-form',
@@ -8,12 +9,18 @@ import { Bar } from './bar';
 })
 export class BarFormComponent {
 
-  model = new Bar(1, 'Adagio', 'Ningyocho');
+  model = new Bar(-1, '', '');
+  errorMessage: string;
 
   submitted = false;
   active = true;
 
+  constructor(private barService: BarService) {}
+
   onSubmit() {
+    this.barService.addBar(this.model).subscribe(
+      bar => this.model = bar,
+      error => this.errorMessage = <any>error);
     this.submitted = true;
   }
 
@@ -21,10 +28,9 @@ export class BarFormComponent {
   get diagnostic() { return JSON.stringify(this.model); }
 
   newBar() {
-    this.model = new Bar(42, '', '');
+    this.model = new Bar(-1, '', '');
     this.active = false;
     setTimeout(() => this.active = true, 0);
-    // console.log('add() bar name = ' + bar.name);
   }
 
 }

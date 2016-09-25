@@ -6,7 +6,7 @@ module.exports = function(config) {
   // var module = {};
 
   // Use native promises
-  // mongoose.Promise = global.Promise;
+  mongoose.Promise = global.Promise;
   // assert.equal(query.exec().constructor, global.Promise);
 
   // connection = mongoose.createConnection(config.db);

@@ -4,4 +4,5 @@ module.exports = function(app) {
 
   app.get('/api/bars', bars.getBars);
   app.get('/api/bars/name/:name', bars.getBarByName);
+  app.post('/api/bars', bars.add);
 }
