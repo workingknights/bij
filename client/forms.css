@@ -5,3 +5,8 @@
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
+
+form .sebm-google-map-container {
+  height: 400px;
+  width: 400px;
+}

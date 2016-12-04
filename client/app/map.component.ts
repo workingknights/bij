@@ -4,21 +4,14 @@ import {
   BrowserModule
 } from '@angular/platform-browser';
 
-import { AgmCoreModule } from 'angular2-google-maps/core';
+import { AgmCoreModule, MouseEvent } from 'angular2-google-maps/core';
 
 import { Bar } from './bar';
 import { BarService } from './bar.service';
 
 @Component({
   selector: 'map',
-  styles: [`
-    .sebm-google-map-container {
-      height: 800px;
-      width: 700px;
-    }
-    `],
   template: `
-    <h3>The "Good Beer" Map</h3>
 		<sebm-google-map [latitude]="35.6693878" [longitude]="139.6012991" [zoom]="6" (mapClick)="mapClicked($event)">
       <sebm-google-map-marker
             *ngFor="let m of markers; let i = index"
